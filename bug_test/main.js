@@ -4,8 +4,6 @@ const wc3v         = require('../wc3v');
 const express = require('express'),
       md5     = require('md5');
 
-const replayPath1 = '../replays/bufferissue.w3g';
-
 const config = {
   port: 9999
 };
@@ -53,7 +51,7 @@ app.post('/bug', (req, res, next) => {
   const results = wc3v.parseReplays({
     inTestMode: true,
     isProduction: true,
-    paths: [replayPath1]
+    paths: [replayPath]
   }); 
 
   console.log('done running test');
