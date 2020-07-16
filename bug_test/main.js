@@ -12,11 +12,11 @@ const results = wc3v.parseReplays({
 
 console.log("done with bug test 1");
 
-const replayPath2 = '../replays/bufferissue.w3g';
+const replayPath2 = '../replays/bad1.w3g';
 
 console.log("starting bug test 2");
 
-const results = wc3v.parseReplays({
+const results2 = wc3v.parseReplays({
         inTestMode: true,
         isProduction: true,
         paths: [replayPath2]
