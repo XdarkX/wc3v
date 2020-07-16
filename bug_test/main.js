@@ -10,6 +10,8 @@ const config = {
   port: 9999
 };
 
+const app = express();
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", 
@@ -19,7 +21,7 @@ app.use(function(req, res, next) {
 
 app.post('/upload', (req, res, next) => {
   console.log('starting bug test');
-  
+
   const results = wc3v.parseReplays({
     inTestMode: true,
     isProduction: true,
@@ -28,3 +30,8 @@ app.post('/upload', (req, res, next) => {
 
   console.log('done running test');
 });
+
+app.listen(config.port, () => {
+  console.log(`started wc3v-bugtest.  port: ${config.port}`);
+});
+
