@@ -4,22 +4,27 @@ const replayPath1 = '../replays/bufferissue.w3g';
 
 console.log("starting bug test 1");
 
-const results = wc3v.parseReplays({
-        inTestMode: true,
-        isProduction: true,
-        paths: [replayPath1]
-      }); 
+const express = require('express');
 
-console.log("done with bug test 1");
+const config = {
+  port: 9999
+};
 
-const replayPath2 = '../replays/bad1.w3g';
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", 
+    "Origin, X-Requested-With, Content-Type, Accept, ticketid, Content-Disposition");
+  next();
+});
 
-console.log("starting bug test 2");
+app.post('/upload', (req, res, next) => {
+  console.log('starting bug test');
+  
+  const results = wc3v.parseReplays({
+    inTestMode: true,
+    isProduction: true,
+    paths: [replayPath1]
+  }); 
 
-const results2 = wc3v.parseReplays({
-        inTestMode: true,
-        isProduction: true,
-        paths: [replayPath2]
-      }); 
-
-console.log("done with bug test 2");
+  console.log('done running test');
+});
