@@ -43,7 +43,7 @@ app.post('/upload', (req, res, next) => {
 app.post('/bug', (req, res, next) => {
   console.log('starting bug test');
 
-  const replayPath = '../replays/bad1.w3g';
+  const replayPath = '../replays/bad2.w3g';
 
   const newReplayBuf = fs.readFileSync(replayPath);
   const replayHash = md5(newReplayBuf);
